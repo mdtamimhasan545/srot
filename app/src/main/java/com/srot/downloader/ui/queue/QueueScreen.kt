@@ -17,7 +17,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier.Modifier
+import androidx.compose.ui.Modifier.*
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.srot.downloader.MainViewModel
@@ -45,7 +45,7 @@ fun QueueScreen(vm: MainViewModel) {
     ) {
         items(state.jobs, key = { it.id }) { job ->
             Card(shape = RoundedCornerShape(24.dp), modifier = Modifier.fillMaxWidth()) {
-                Column(Modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text(job.title, style = MaterialTheme.typography.titleSmall)
                     Text(job.status.name, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
                     if (job.status == JobStatus.RUNNING) {
