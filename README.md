@@ -1,58 +1,58 @@
-# Srot (স্রোত)
+# Srot (স্রোত) — Android
 
-**Material 3 yt-dlp studio** — bilingual (English + বাংলা) companion UI for [yt-dlp](https://github.com/yt-dlp/yt-dlp).
+Material 3 **yt-dlp** studio for Android. Kotlin · Jetpack Compose · English + বাংলা.
 
-Srot compiles **real yt-dlp arguments** from every control, analyzes **public media metadata** (oEmbed / Open Graph), and manages a **persistent download queue**. The native `yt-dlp` / FFmpeg binaries are **not executed in the browser** — copy the generated command to a machine where you have the right to download the media.
+## What it does
 
-## Features
+- Paste a video / playlist URL (or share into the app)
+- Analyze public metadata (title, thumbnail via oEmbed)
+- Quality presets: Best · 4K · 1080p · 720p · Audio
+- Queue + foreground download service with notifications
+- Structured **yt-dlp argv** (no shell)
+- Settings: language, theme, Wi‑Fi only, binary paths
 
-- **Home** — paste one or more URLs, analyze, presets (Best / 4K / 1080p / 720p / Audio / Custom)
-- **Media info** — thumbnail, title, uploader, duration, full format & options panel
-- **Queue** — pause / resume / cancel / retry, concurrent limit, progress / speed / ETA
-- **History & Files** — finished jobs with exact `argv` and copyable commands
-- **Settings** — language, theme (light / dark / system), Wi‑Fi only, retries, paths
-- **Advanced** — full flag map (network, auth/cookies, playlist, subtitles, SponsorBlock, post-processing, custom args)
-- **Logs** — structured activity stream
-- **About** — licenses and copyright notice
+## Build APK (local)
 
-## Stack
-
-- React 19 + TanStack Start / Router
-- Tailwind CSS v4 + Radix UI (Material 3–inspired tokens)
-- Zustand (persisted settings, queue, history, logs)
-- Server function for public metadata analysis (`createServerFn`)
-
-## Security & policy
-
-- Filenames and paths are sanitized; path traversal is rejected
-- Custom arguments are **tokenized without a shell** (no `;`, `|`, backticks, `$()`)
-- Credentials stay on-device; cookie contents are never embedded into copied commands as secrets beyond path flags
-- Does **not** bypass DRM, paywalls, CAPTCHA, or access controls
-- Only download media you have the right to save
-
-## Language & theme
-
-- **English** and **বাংলা** (Noto Sans Bengali) with an in-Settings switcher
-- Light / Dark / System, remembered in `localStorage`
-
-## Local development
-
-This source was built against the Grok App Builder / TanStack Start workspace template (`0.0.0.0:8080`, Vite, Nitro).
+1. Install [Android Studio](https://developer.android.com/studio) (Ladybug or newer) + JDK 17
+2. Open this folder as a Gradle project
+3. **Build → Build Bundle(s) / APK(s) → Build APK(s)**  
+   or:
 
 ```bash
-npm install
-npm run dev
+./gradlew assembleDebug
 ```
 
-Ensure the host template provides `src/router.tsx` (`getRouter`), `__root.tsx`, and the Vite/TanStack Start config used by the App Builder.
+Debug APK path:
 
-## License notes
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
 
-- **yt-dlp** — Unlicense
-- **FFmpeg** — LGPL / GPL (depending on build)
-- **Srot UI** — companion interface; respect site terms and applicable copyright
+## Build APK on GitHub Actions
 
-## Repository note
+Push to `main` runs `.github/workflows/build-apk.yml` and uploads the debug APK as a workflow artifact.
 
-Published at [github.com/mdtamimhasan545/srot](https://github.com/mdtamimhasan545/srot).
-The name `yt-dlp` was not available for a new public repository on this account.
+1. Open the repo **Actions** tab
+2. Select **Build APK**
+3. Download the artifact after the run succeeds
+
+## First run on device
+
+1. Install the APK (enable “Install unknown apps” if needed)
+2. Open **Settings → Download yt-dlp binary** (or set a path to your own binary)
+3. Optional: install FFmpeg for merging/audio extract and set path in Settings
+4. Grant notification permission for progress
+
+> On many devices you need a **native** yt-dlp / python build that runs on Android ABI (`arm64-v8a`).  
+> The “fetch binary” button downloads the official yt-dlp release as a starting point; replace it with a device-compatible build if execution fails.
+
+## Legal
+
+Only download media you have the right to save. Do **not** bypass DRM, paywalls, CAPTCHAs, or access controls. Respect site terms and copyright.
+
+- yt-dlp — Unlicense  
+- FFmpeg — LGPL/GPL depending on build  
+
+## Package
+
+`com.srot.downloader` · minSdk 26 · targetSdk 35
