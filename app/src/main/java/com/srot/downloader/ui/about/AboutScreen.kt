@@ -28,7 +28,7 @@ fun AboutScreen() {
         Text(stringResource(R.string.about_body), style = MaterialTheme.typography.bodyMedium)
         Text(stringResource(R.string.legal_title), style = MaterialTheme.typography.titleMedium)
         Text(stringResource(R.string.legal_body), style = MaterialTheme.typography.bodyMedium)
-        Text("yt-dlp — Unlicense", style = MaterialTheme.typography.bodySmall)
-        Text("FFmpeg — LGPL / GPL", style = MaterialTheme.typography.bodySmall)
+        Text("yt-dlp - Unlicense", style = MaterialTheme.typography.bodySmall)
+        Text("FFmpeg - LGPL / GPL", style = MaterialTheme.typography.bodySmall)
     }
 }
