@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="teal_primary">#0E6B66</color>
+    <color name="teal_foam">#7ED4CE</color>
+    <color name="paper">#F3F0EA</color>
+    <color name="ink">#141816</color>
+    <color name="ic_launcher_background">#0E6B66</color>
+</resources>

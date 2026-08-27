@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">স্রোত</string>
+    <string name="app_tag">yt-dlp স্টুডিও</string>
+    <string name="home">হোম</string>
+    <string name="queue">কিউ</string>
+    <string name="settings">সেটিংস</string>
+    <string name="about">সম্পর্কে</string>
+    <string name="paste_url">ভিডিও বা প্লেলিস্টের লিংক পেস্ট করুন</string>
+    <string name="analyze">বিশ্লেষণ</string>
+    <string name="download">ডাউনলোড</string>
+    <string name="paste">পেস্ট</string>
+    <string name="best">সেরা</string>
+    <string name="uhd">৪কে</string>
+    <string name="p1080">১০৮০পি</string>
+    <string name="p720">৭২০পি</string>
+    <string name="audio_only">অডিও</string>
+    <string name="language">ভাষা</string>
+    <string name="theme">থিম</string>
+    <string name="theme_system">সিস্টেম</string>
+    <string name="theme_light">হালকা</string>
+    <string name="theme_dark">গাঢ়</string>
+    <string name="wifi_only">শুধু ওয়াই‑ফাই</string>
+    <string name="ytdlp_path">yt-dlp বাইনারি পাথ</string>
+    <string name="ffmpeg_path">FFmpeg পাথ</string>
+    <string name="output_folder">ডাউনলোড ফোল্ডার</string>
+    <string name="notification_channel">ডাউনলোড</string>
+    <string name="notification_title">স্রোত ডাউনলোড</string>
+    <string name="empty_queue">এখনও কোনো ডাউনলোড নেই</string>
+    <string name="empty_queue_hint">হোমে লিংক দিন, মান বেছে নিন, তারপর ডাউনলোড করুন।</string>
+    <string name="pause">বিরতি</string>
+    <string name="resume">চালিয়ে যান</string>
+    <string name="cancel">বাতিল</string>
+    <string name="retry">আবার চেষ্টা</string>
+    <string name="legal_title">দায়িত্বশীল ব্যবহার</string>
+    <string name="legal_body">শুধু সেই মিডিয়া নামান যা সংরক্ষণের অধিকার আপনার আছে। ডিআরএম, পেওয়াল, ক্যাপচা বা অ্যাক্সেস কন্ট্রোল ভাঙবেন না। সাইটের শর্ত ও কপিরাইট মানুন।</string>
+    <string name="about_body">স্রোত অ্যান্ড্রয়েডে yt-dlp-এর জন্য একটি ম্যাটেরিয়াল ৩ কম্প্যানিয়ন। প্রতিটি অপশন স্ট্রাকচার্ড প্রসেস আর্গুমেন্টে যায় — শেল নয়।</string>
+    <string name="engine_missing">yt-dlp বাইনারি পাওয়া যায়নি। সেটিংসে পাথ দিন অথবা অফিসিয়াল রিলিজ ডাউনলোড করুন।</string>
+    <string name="invalid_url">সঠিক http(s) লিংক দিন</string>
+    <string name="analyzing">বিশ্লেষণ হচ্ছে…</string>
+    <string name="added_queue">কিউতে যোগ হয়েছে</string>
+    <string name="fetch_binary">yt-dlp বাইনারি নামান</string>
+    <string name="english">English</string>
+    <string name="bengali">বাংলা</string>
+</resources>

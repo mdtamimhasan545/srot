@@ -1,4 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Srot</string>
+    <string name="app_tag">yt-dlp studio</string>
+    <string name="home">Home</string>
+    <string name="queue">Queue</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="paste_url">Paste video or playlist URL</string>
+    <string name="analyze">Analyze</string>
+    <string name="download">Download</string>
+    <string name="paste">Paste</string>
+    <string name="best">Best</string>
+    <string name="uhd">4K</string>
+    <string name="p1080">1080p</string>
+    <string name="p720">720p</string>
+    <string name="audio_only">Audio</string>
+    <string name="language">Language</string>
+    <string name="theme">Theme</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="wifi_only">Wi‑Fi only</string>
+    <string name="ytdlp_path">yt-dlp binary path</string>
+    <string name="ffmpeg_path">FFmpeg path</string>
+    <string name="output_folder">Download folder</string>
+    <string name="notification_channel">Downloads</string>
+    <string name="notification_title">Srot download</string>
+    <string name="empty_queue">No downloads yet</string>
+    <string name="empty_queue_hint">Paste a URL on Home, pick quality, then download.</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+    <string name="legal_title">Use responsibly</string>
+    <string name="legal_body">Only download media you have the right to save. Do not bypass DRM, paywalls, CAPTCHAs, or access controls. Respect site terms and copyright.</string>
+    <string name="about_body">Srot is a Material 3 companion for yt-dlp on Android. Every option maps to structured process arguments — never a shell.</string>
+    <string name="engine_missing">yt-dlp binary not found. Place a binary at the path in Settings or let the app fetch the official release.</string>
+    <string name="invalid_url">Enter a valid http(s) URL</string>
+    <string name="analyzing">Analyzing…</string>
+    <string name="added_queue">Added to queue</string>
+    <string name="fetch_binary">Download yt-dlp binary</string>
+    <string name="english">English</string>
+    <string name="bengali">বাংলা</string>
 </resources>
