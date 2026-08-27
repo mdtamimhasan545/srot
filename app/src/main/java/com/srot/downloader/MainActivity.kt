@@ -5,8 +5,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
@@ -19,7 +17,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.`ui`.`modifier`.`Modifier`
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -58,7 +55,6 @@ private fun SrotRoot(sharedUrl: String?, app: SrotApp) {
     val vm: MainViewModel = viewModel(factory = MainViewModel.factory(app))
 
     Scaffold(
-        modifier = Modifier.fillMaxSize(),
         bottomBar = {
             NavigationBar {
                 NavigationBarItem(
@@ -87,11 +83,10 @@ private fun SrotRoot(sharedUrl: String?, app: SrotApp) {
                 )
             }
         }
-    ) { padding ->
+    ) { _ ->
         NavHost(
             navController = nav,
-            startDestination = Tab.Home.route,
-            modifier = Modifier.padding(padding)
+            startDestination = Tab.Home.route
         ) {
             composable(Tab.Home.route) {
                 HomeScreen(vm = vm, initialUrl = sharedUrl)

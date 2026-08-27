@@ -2,14 +2,9 @@ package com.srot.downloader.ui.about
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.`ui`.`modifier`.`Modifier`
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.srot.downloader.R
@@ -17,10 +12,6 @@ import com.srot.downloader.R
 @Composable
 fun AboutScreen() {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineMedium)
