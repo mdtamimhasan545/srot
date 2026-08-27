@@ -2,11 +2,6 @@ package com.srot.downloader.ui.settings
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.MaterialTheme
@@ -16,7 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.`ui`.`modifier`.`Modifier`
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.srot.downloader.MainViewModel
@@ -27,10 +21,6 @@ fun SettingsScreen(vm: MainViewModel) {
     val state by vm.state.collectAsState()
     val s = state.settings
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(stringResource(R.string.settings), style = MaterialTheme.typography.headlineSmall)
@@ -55,7 +45,6 @@ fun SettingsScreen(vm: MainViewModel) {
         }
 
         androidx.compose.foundation.layout.Row(
-            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(stringResource(R.string.wifi_only))
@@ -65,23 +54,20 @@ fun SettingsScreen(vm: MainViewModel) {
         OutlinedTextField(
             value = s.ytdlpPath,
             onValueChange = { v -> vm.updateSettings { it.copy(ytdlpPath = v) } },
-            label = { Text(stringResource(R.string.ytdlp_path)) },
-            modifier = Modifier.fillMaxWidth()
+            label = { Text(stringResource(R.string.ytdlp_path)) }
         )
         OutlinedTextField(
             value = s.ffmpegPath,
             onValueChange = { v -> vm.updateSettings { it.copy(ffmpegPath = v) } },
-            label = { Text(stringResource(R.string.ffmpeg_path)) },
-            modifier = Modifier.fillMaxWidth()
+            label = { Text(stringResource(R.string.ffmpeg_path)) }
         )
         OutlinedTextField(
             value = s.outputDir,
             onValueChange = { v -> vm.updateSettings { it.copy(outputDir = v) } },
-            label = { Text(stringResource(R.string.output_folder)) },
-            modifier = Modifier.fillMaxWidth()
+            label = { Text(stringResource(R.string.output_folder)) }
         )
 
-        Button(onClick = vm::fetchBinary, modifier = Modifier.fillMaxWidth()) {
+        Button(onClick = vm::fetchBinary) {
             Text(stringResource(R.string.fetch_binary))
         }
 

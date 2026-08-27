@@ -4,17 +4,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -24,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.`ui`.`modifier`.`Modifier`
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.res.stringResource
@@ -45,21 +36,16 @@ fun HomeScreen(vm: MainViewModel, initialUrl: String?) {
     }
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-            .padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineMedium)
         Text(stringResource(R.string.app_tag), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
 
-        Card(shape = RoundedCornerShape(28.dp), modifier = Modifier.fillMaxWidth()) {
-            Column(Modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Card(shape = RoundedCornerShape(28.dp)) {
+            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedTextField(
                     value = state.urlInput,
                     onValueChange = vm::setUrl,
-                    modifier = Modifier.fillMaxWidth(),
                     label = { Text(stringResource(R.string.paste_url)) },
                     minLines = 3,
                     shape = RoundedCornerShape(16.dp)
@@ -69,7 +55,7 @@ fun HomeScreen(vm: MainViewModel, initialUrl: String?) {
                         clipboard.getText()?.text?.let { vm.setUrl(it.trim()) }
                     }) { Text(stringResource(R.string.paste)) }
                     Button(onClick = vm::analyze, enabled = !state.analyzing) {
-                        if (state.analyzing) CircularProgressIndicator(modifier = Modifier.height(18.dp))
+                        if (state.analyzing) Text("...")
                         else Text(stringResource(R.string.analyze))
                     }
                 }
@@ -86,22 +72,19 @@ fun HomeScreen(vm: MainViewModel, initialUrl: String?) {
         }
 
         state.media?.let { media ->
-            Card(shape = RoundedCornerShape(28.dp), modifier = Modifier.fillMaxWidth()) {
+            Card(shape = RoundedCornerShape(28.dp)) {
                 Column {
                     media.thumbnail?.let {
                         AsyncImage(
                             model = it,
                             contentDescription = null,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(180.dp),
                             contentScale = ContentScale.Crop
                         )
                     }
-                    Column(Modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         Text(media.title, style = MaterialTheme.typography.titleMedium)
                         Text(media.uploader, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        Button(onClick = vm::enqueueDownload, modifier = Modifier.fillMaxWidth()) {
+                        Button(onClick = vm::enqueueDownload) {
                             Text(stringResource(R.string.download))
                         }
                     }
@@ -114,15 +97,13 @@ fun HomeScreen(vm: MainViewModel, initialUrl: String?) {
         }
 
         if (!state.binaryReady) {
-            Card(shape = RoundedCornerShape(20.dp), modifier = Modifier.fillMaxWidth()) {
-                Column(Modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Card(shape = RoundedCornerShape(20.dp)) {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text(stringResource(R.string.engine_missing), style = MaterialTheme.typography.bodyMedium)
                     Button(onClick = vm::fetchBinary) { Text(stringResource(R.string.fetch_binary)) }
                 }
             }
         }
-
-        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 
