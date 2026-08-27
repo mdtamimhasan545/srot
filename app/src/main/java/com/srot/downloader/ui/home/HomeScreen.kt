@@ -24,7 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier.modifier
+import androidx.compose.ui.modifier.*
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.res.stringResource
@@ -55,7 +55,7 @@ fun HomeScreen(vm: MainViewModel, initialUrl: String?) {
         Text(stringResource(R.string.app_tag), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
 
         Card(shape = RoundedCornerShape(28.dp), modifier = Modifier.fillMaxWidth()) {
-            Column(Modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedTextField(
                     value = state.urlInput,
                     onValueChange = vm::setUrl,
@@ -98,7 +98,7 @@ fun HomeScreen(vm: MainViewModel, initialUrl: String?) {
                             contentScale = ContentScale.Crop
                         )
                     }
-                    Column(Modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         Text(media.title, style = MaterialTheme.typography.titleMedium)
                         Text(media.uploader, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         Button(onClick = vm::enqueueDownload, modifier = Modifier.fillMaxWidth()) {
@@ -115,7 +115,7 @@ fun HomeScreen(vm: MainViewModel, initialUrl: String?) {
 
         if (!state.binaryReady) {
             Card(shape = RoundedCornerShape(20.dp), modifier = Modifier.fillMaxWidth()) {
-                Column(Modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text(stringResource(R.string.engine_missing), style = MaterialTheme.typography.bodyMedium)
                     Button(onClick = vm::fetchBinary) { Text(stringResource(R.string.fetch_binary)) }
                 }
